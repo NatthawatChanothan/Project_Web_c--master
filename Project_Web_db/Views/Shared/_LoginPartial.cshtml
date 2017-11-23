@@ -1,0 +1,59 @@
+@using Microsoft.AspNetCore.Identity
+@using Project_Web_db.Models
+
+@using Microsoft.AspNetCore.Http
+
+
+
+
+
+@if (Context.Session.GetString("UserID") != null)
+{
+    <div id="logoutForm" class="btn btn-link navbar-btn navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+
+            <!--dropdown-->
+             <div class="dropdown">
+                 <span class="glyphicon glyphicon-copyright-mark"></span>
+                 @Context.Session.GetString("Usermoney") &nbsp;&nbsp;
+                 <a data-toggle="dropdown" style="text-decoration: none;">           
+                 <span class="glyphicon glyphicon-user"></span>
+                 @Context.Session.GetString("Username")
+                 <span class="caret"></span>
+                 </a>
+                 <ul class="dropdown-menu">
+
+                     <li><a href='@Url.Action("Search_Reservation_User", "User",new {id = @Context.Session.GetString("UserID") })'><span class="glyphicon glyphicon-calendar"></span>&nbsp;Reservation</a></li>
+                     <li><a href='@Url.Action("Search_Addmoney_User", "User",new {id = @Context.Session.GetString("UserID") })'><span class="glyphicon glyphicon-calendar"></span>&nbsp;Refill </a></li>
+
+                     @if (@Context.Session.GetString("Userstate") == "Ticketing")
+                     {
+                        <li><a href='@Url.Action("Search_userView", "Personnel")'><span class="glyphicon glyphicon-calendar"></span>&nbsp;Search</a></li>
+
+
+                     }
+                     else if (@Context.Session.GetString("Userstate") == "Driver")
+                     {
+
+
+                     }
+                     else if (@Context.Session.GetString("Userstate") == "Admin")
+                     {
+                        <li><a href='@Url.Action("Search_userView", "Personnel")'><span class="glyphicon glyphicon-calendar"></span>&nbsp;Search</a></li>
+
+                     }
+                     
+                     <li><a href='@Url.Action("Lockout", "Account")'><span class="glyphicon glyphicon-log-out"></span>&nbsp; Log out</a></li>
+                 </ul>
+             </div>
+ 
+        </ul>
+    </div>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+    </ul>
+}

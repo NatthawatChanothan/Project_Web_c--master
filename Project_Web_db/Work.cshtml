@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+@*<input type="button" class="btn btn-info" value="ขาเข้า" onclick="location.href='@Url.Action("Search_busschedule", "Ticket_personnel", new { route = 1,station = 1 })'" />*@
+@*<input type="button" class="btn btn-info" value="ขาออก" onclick="location.href='@Url.Action("Search_busschedule", "Ticket_personnel", new { route = 2,station = 1 })'" />*@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        .container-fluid {
+        }
+
+        .container {
+            padding-top: 5px;
+        }
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+    <style type="text/css">
+        .auto-style1 {
+            width: 95%;
+            height: 181px;
+            margin-left: 19px;
+            margin-right: 0px;
+        }
+
+        .auto-style2 {
+            width: 347px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="Ix9CRMyPoqIZGgzm0P4xvPdM3U2yM5b63MwrzOvy">
+
+    <title>Romarket-TH</title>
+
+    <!-- Styles -->
+    <link href="https://www.romarket-th.com/css/app.css" rel="stylesheet">
+
+    <!-- Css ทำเอง -->
+    <link href="~/main.css" rel="stylesheet" />
+    <!-- template -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="https://www.romarket-th.com/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.romarket-th.com/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://www.romarket-th.com/css/prettyPhoto.css" rel="stylesheet">
+    <link href="https://www.romarket-th.com/css/price-range.css" rel="stylesheet">
+    <link href="https://www.romarket-th.com/css/animate.css" rel="stylesheet">
+    <link href="https://www.romarket-th.com/css/main.css" rel="stylesheet">
+
+    <!-- thempbutton -->
+    <link href="https://www.romarket-th.com/css/slant.css" rel="stylesheet">
+    <link href="https://www.romarket-th.com/css/gradient.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" href="https://www.romarket-th.com/images/ico/apple-touch-icon-57-precomposed.png">
+
+
+    <!-- ส่วนของ Bootstrap -->
+    <script src="https://www.romarket-th.com/js/popupImage.js"></script>
+
+
+    <!-- bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- popup Image -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sell-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse" id="sell-collapse" style="margin: 15px;">
+                            <form class="form-inline" action="https://www.romarket-th.com" method="get">
+                                <input type="hidden" name="_token" value="Ix9CRMyPoqIZGgzm0P4xvPdM3U2yM5b63MwrzOvy">
+
+
+                                <select name="location" type="select" value="" id="category_value" class="form-control">
+                                    <option value="null">สถาณี</option>
+                                    <option value="1">ปทุมธานี</option>
+                                    <option value="2">ระยอง</option>
+                                    <option value="3">วันมะเดื่อ</option>
+                                </select>
+
+                            </form>
+                        </ul>
+                    </div>
+                    <div class="search_box pull-right">
+                        <button type="submit" name="submit" value="Search" class="btn btn-primary">Search</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close">×</span>
+        <img class="modal-content" id="myModalImage">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.romarket-th.com/js/app.js"></script>
+
+
+
+    <table id="customers">
+        <colgroup>
+            <col span="3" style="background-color:#ffffff">
+        </colgroup>
+        <tr>
+
+            <th class="auto-style2">หมายเลขรถ</th>
+            <th class="auto-style2">เวลาเดินรถ</th>
+            <th class="auto-style2">เบอร์โทรรถ</th>
+            <th class="auto-style2">จำนวนที่ว่าง</th>
+            <th class="auto-style2">จอง</th>
+        </tr>
+        <tr>
+            <td class="auto-style2">1</td>
+            <td class="text-center">10:00</td>
+            <td class="text-center">0612135455</td>
+            <td class="text-center">5</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+        <tr class="sdaw">
+            <td class="auto-style2">2</td>
+            <td class="text-center">10:00</td>
+            <td class="text-center">0612135455</td>
+            <td class="text-center">0</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+        <tr>
+            <td class="auto-style2">3</td>
+            <td class="text-center">10:00</td>
+            <td class="text-center">0612135455</td>
+            <td class="text-center">0</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+        <tr>
+            <td class="auto-style2">4</td>
+            <td class="text-center">10:00</td>
+            <td class="text-center">0612135455</td>
+            <td class="text-center">0</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+        <tr>
+            <td class="auto-style2">5</td>
+            <td class="text-center">10:00</td>
+            <td class="text-center">0612135455</td>
+            <td class="text-center">0</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+        <tr>
+            <td class="auto-style2">6</td>
+            <td class="text-center">10:00</td>
+            <td class="text-center">0612135455</td>
+            <td class="text-center">0</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+        <tr>
+            <td class="auto-style2">7</td>
+            <td class="text-center">10:00</tdclass="text-center">
+            <td class="text-center">0612135455</td>
+            <td class="text-center">2</td>
+            <td><button type="button" class="btn btn-info center-block">Dark</button></td>
+        </tr>
+
+
+    </table>
+    @*  <input type="button" class="btn btn-info" value="eiei" onclick="location.href='@Url.Action("eiei1", "Test")'" />*@
+
+
+
+
+
+
+</body>
+</html>
